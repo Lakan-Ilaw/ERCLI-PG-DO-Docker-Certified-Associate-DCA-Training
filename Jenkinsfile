@@ -75,7 +75,7 @@ pipeline {
         stage('Run the Docker image from Docker Hub in Docker Swarm cluster') {
             steps {
                 echo 'Run the Docker image from Docker Hub in Docker Swarm cluster'
-                sh "docker service create --name ${containerName}-${tag} -p $(httpPort):$(httpPort) --replicas 3 ${dockerHubUser}/${containerName}:${tag}"
+                sh "docker service create --name ${containerName}-${tag} -p ${httpPort}:${httpPort} --replicas 3 ${dockerHubUser}/${containerName}:${tag}"
             }
         }
 
