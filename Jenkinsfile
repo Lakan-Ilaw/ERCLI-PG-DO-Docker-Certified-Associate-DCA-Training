@@ -86,7 +86,7 @@ pipeline {
                         script: "docker service ls | grep ${containerName}:${tag} > /dev/null && echo 'success' || echo 'failed'",
                         returnStdout: true
                     ).trim()
-                    if (imageExists == 'success') {
+                    if (containerExists == 'success') {
                         echo "Image ${dockerHubUser}/${containerName}:${tag} exists in the cluster. Run successful!"
                     } else {
                         error ("Image ${dockerHubUser}/${containerName}:${tag} doesn't exist in the cluster. Run failed!")
