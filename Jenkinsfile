@@ -29,13 +29,6 @@ pipeline {
             }
         }
 
-        stage('Maven Build') {
-            steps {
-                echo 'Maven Build'
-                sh 'mvn clean package'
-            }
-        }
-
         stage('Docker Image Build') {
             steps {
                 echo 'Creating Docker image'
